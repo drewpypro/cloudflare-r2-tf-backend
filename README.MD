@@ -32,8 +32,8 @@
 ## Creating an R2 Bucket
 1. In Cloudflare go to Account Home->Storage & databases->R2 object storage->Overview
 2. Create Bucket, provide it a bucket name (to be used in the $BUCKET_NAME variable), choose "wnam" location (if you change it make sure to change it in the [providers.tf](providers.tf#L19)) and select **Standard** default storage class. 
->> [!NOTE]
->> You may need to accept the purchasing agreement here if necessary.
+> [!NOTE]
+> You may need to accept the purchasing agreement here if necessary.
 
 ## API Tokens and IAM
 
@@ -95,7 +95,7 @@
 # Using this Repo
 - fork or clone this repo into your personal git repo ```https://github.com/yourprofile/cloudflare-r2-tf-backend```
 - Go to ```https://github.com/yourprofile/cloudflare-r2-tf-backend/settings/actions``` and enable **Read and write permissions** under the Workflow permissions section and save. 
-    - <img src ="img/git-actions-permissions.png" width="600">
+    <img src ="img/git-actions-permissions.png" width="600">
 - set your repository secrets in github ```https://github.com/yourprofile/cloudflare-r2-tf-backend/settings/secrets/actions``` as described in [#Getting Started](#getting-started)
     - **AWS_ACCESS_KEY_ID** & **AWS_SECRET_ACCESS_KEY**: AWS access key and secret for building AWS SG's.
     - **BUCKET_ACCESS_KEY_ID** & **BUCKET_SECRET_ACCESS_KEY**:  R2 API access/secret keys used to read/write to the R2 storage backend. Generated when creating the [Cloudflare R2 API Token](#cloudflare-r2-api-token).
