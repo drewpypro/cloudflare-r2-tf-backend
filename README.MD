@@ -65,6 +65,10 @@
                 "ec2:CreateSecurityGroup",
                 "ec2:DeleteSecurityGroup",
                 "ec2:DescribeSecurityGroups",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeVpcAttribute",
                 "ec2:DescribeVpcs",
                 "ec2:CreateTags",
                 "ec2:DeleteTags"
@@ -76,6 +80,16 @@
         ```
 
     </details>
+
+## [Git Actions](.github/workflows/terraform-build.yaml)
+- Env Vars are declared using github-secrets
+- Git runner docker container image is set to ```ghcr.io/drewpypro/kube-aws-istio:latest```
+- **Steps**:
+    1. [Checkout repo](.github/workflows/terraform-build.yaml#L25) - clone latest HEAD version of repo on runner. 
+    2. [Verify Backend](.github/workflows/terraform-build.yaml#L28) - tests the r2 provider backend, put a file in your bucket to see it displayed in the runner. 
+    2. [terraform init](.github/workflows/terraform-build.yaml#L41) - Initialize terraform (and the backend)
+    3. [terraform plan](.github/workflows/terraform-build.yaml#L50) - Plan resource build
+    4. [terraform apply](.github/workflows/terraform-build.yaml#L54) - Apply resources
 
 # Using this Repo
 - fork or clone this repo into your personal git repo ```https://github.com/yourprofile/cloudflare-r2-tf-backend```

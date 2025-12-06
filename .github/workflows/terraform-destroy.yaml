@@ -1,9 +1,6 @@
 name: terraform plan workflow
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 env:
@@ -38,6 +35,7 @@ jobs:
         run: |
           curl https://ifconfig.me/ip
           aws s3 ls s3://$BUCKET_NAME --endpoint-url $BUCKET_ENDPOINT
+          
 
       - name: terraform init
         run: |
@@ -48,10 +46,6 @@ jobs:
             -backend-config="access_key=$BUCKET_ACCESS_KEY_ID" \
             -backend-config="secret_key=$BUCKET_SECRET_ACCESS_KEY"
 
-      - name: terraform plan
+      - name: terraform destroy
         run: |
-          terraform plan
-
-      - name: terraform apply
-        run: |
-          terraform apply -auto-approve
+          terraform destroy -auto-approve
