@@ -84,7 +84,7 @@
 
 ## [Git Actions](.github/workflows/terraform-build.yaml)
 - [Env Vars](.github/workflows/terraform-build.yaml#L11) are declared using github-secrets
-- Git runner docker container image is set to ```ghcr.io/drewpypro/kube-aws-istio:latest```
+- [Git runner docker container image](.github/workflows/terraform-build.yaml#L24) is set to ```ghcr.io/drewpypro/kube-aws-istio:latest```
 - **Steps**:
     1. [Checkout repo](.github/workflows/terraform-build.yaml#L27) - clone latest HEAD version of repo on runner. 
     2. [Verify Backend](.github/workflows/terraform-build.yaml#L30) - tests the r2 provider backend, put a file in your bucket to see it displayed in the runner. 
