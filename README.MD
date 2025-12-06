@@ -1,4 +1,5 @@
 # Cloudflare R2 TF Backend
+![r2-tf-backend-architecture](img/r2-tf-backend-architecture.drawio.png)
 - Test cloudflare r2 object storage as a public cloud terraform state backend when using github actions for an IaC pipeline.
 - Building the R2 storage and API tokens must be done manually in the portal (or in a separate pipeline)
 

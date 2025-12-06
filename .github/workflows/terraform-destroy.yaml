@@ -1,4 +1,4 @@
-name: terraform plan workflow
+name: terraform destroy workflow
 
 on:
   workflow_dispatch:
