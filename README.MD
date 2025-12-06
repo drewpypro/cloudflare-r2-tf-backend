@@ -32,8 +32,8 @@
 ## Creating an R2 Bucket
 1. In Cloudflare go to Account Home->Storage & databases->R2 object storage->Overview
 2. Create Bucket, provide it a bucket name (to be used in the $BUCKET_NAME variable), choose "wnam" location (if you change it make sure to change it in the [providers.tf](providers.tf#L19)) and select **Standard** default storage class. 
->> !NOTE:
->> You may need to accept the purchasing agreement here if necessary.
+> [!NOTE]
+> You may need to accept the purchasing agreement here if necessary.
 
 ## API Tokens and IAM
 
