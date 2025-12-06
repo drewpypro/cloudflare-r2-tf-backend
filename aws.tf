@@ -30,10 +30,10 @@ locals {
 #   }
 # }
 
-output "security_group_ids" {
-  value = {
-    for name, sg in aws_security_group.sgs :
-    name => sg.id
-  }
-  description = "Map of all security group names to their IDs"
-}
+# output "security_group_ids" {
+#   value = {
+#     for name, sg in aws_security_group.sgs :
+#     name => sg.id
+#   }
+#   description = "Map of all security group names to their IDs"
+# }
