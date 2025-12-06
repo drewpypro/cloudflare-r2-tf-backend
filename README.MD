@@ -83,28 +83,28 @@
     </details>
 
 ## [Git Actions](.github/workflows/terraform-build.yaml)
-- Env Vars are declared using github-secrets
+- [Env Vars](.github/workflows/terraform-build.yaml#L11) are declared using github-secrets
 - Git runner docker container image is set to ```ghcr.io/drewpypro/kube-aws-istio:latest```
 - **Steps**:
-    1. [Checkout repo](.github/workflows/terraform-build.yaml#L25) - clone latest HEAD version of repo on runner. 
-    2. [Verify Backend](.github/workflows/terraform-build.yaml#L28) - tests the r2 provider backend, put a file in your bucket to see it displayed in the runner. 
-    2. [terraform init](.github/workflows/terraform-build.yaml#L41) - Initialize terraform (and the backend)
-    3. [terraform plan](.github/workflows/terraform-build.yaml#L50) - Plan resource build
-    4. [terraform apply](.github/workflows/terraform-build.yaml#L54) - Apply resources
+    1. [Checkout repo](.github/workflows/terraform-build.yaml#L27) - clone latest HEAD version of repo on runner. 
+    2. [Verify Backend](.github/workflows/terraform-build.yaml#L30) - tests the r2 provider backend, put a file in your bucket to see it displayed in the runner. 
+    2. [terraform init](.github/workflows/terraform-build.yaml#L43) - Initialize terraform (and the backend)
+    3. [terraform plan](.github/workflows/terraform-build.yaml#L52) - Plan resource build
+    4. [terraform apply](.github/workflows/terraform-build.yaml#L56) - Apply resources
 
 # Using this Repo
 - fork or clone this repo into your personal git repo ```https://github.com/yourprofile/cloudflare-r2-tf-backend```
 - Go to ```https://github.com/yourprofile/cloudflare-r2-tf-backend/settings/actions``` and enable **Read and write permissions** under the Workflow permissions section and save. 
     <img src ="img/git-actions-permissions.png" width="600">
 - set your repository secrets in github ```https://github.com/yourprofile/cloudflare-r2-tf-backend/settings/secrets/actions``` as described in [#Getting Started](#getting-started)
-    - **AWS_ACCESS_KEY_ID** & **AWS_SECRET_ACCESS_KEY**: AWS access key and secret for building AWS SG's.
-    - **BUCKET_ACCESS_KEY_ID** & **BUCKET_SECRET_ACCESS_KEY**:  R2 API access/secret keys used to read/write to the R2 storage backend. Generated when creating the [Cloudflare R2 API Token](#cloudflare-r2-api-token).
-    - **BUCKET_ENDPOINT**: ```https://<your-account-id>.r2.cloudflarestorage.com``` which should be provided to you in the R2 dashboard. 
-    - **BUCKET_KEY**: This is the file that will be created by the tf provider. You can do something like ```cloudflare-r2-tf-backend/terraform.tfstate```
-    - **BUCKET_NAME**: Bucket name you provided in the [Creating an R2 Bucket](#creating-an-r2-bucket) step.
+    - ```AWS_ACCESS_KEY_ID``` & ```AWS_SECRET_ACCESS_KEY```: AWS access key and secret for building AWS SG's.
+    - ```BUCKET_ACCESS_KEY_ID``` & ```BUCKET_SECRET_ACCESS_KEY```:  R2 API access/secret keys used to read/write to the R2 storage backend. Generated when creating the [Cloudflare R2 API Token](#cloudflare-r2-api-token).
+    - ```BUCKET_ENDPOINT```: ```https://<your-account-id>.r2.cloudflarestorage.com``` which should be provided to you in the R2 dashboard. 
+    - ```BUCKET_KEY```: This is the file that will be created by the tf provider. You can do something like ```cloudflare-r2-tf-backend/terraform.tfstate```
+    - ```BUCKET_NAME```: Bucket name you provided in the [Creating an R2 Bucket](#creating-an-r2-bucket) step.
     -  **If building buckets programatically (optional)**:
-        - **CLOUDFLARE_API_TOKEN**: An API token created to build Cloudflare R2, DNS and WAF resources as described in the [Cloudflare API Token](#cloudflare-api-token) section.
-        - **CLOUDFLARE_ACCOUNT_ID** & **CLOUDFLARE_ZONE_ID**: Cloudflare Account ID and zone required for DNS and WAF resources.
+        - ```CLOUDFLARE_API_TOKEN```: An API token created to build Cloudflare R2, DNS and WAF resources as described in the [Cloudflare API Token](#cloudflare-api-token) section.
+        - ```CLOUDFLARE_ACCOUNT_ID``` & ```CLOUDFLARE_ZONE_ID```: Cloudflare Account ID and zone required for DNS and WAF resources.
 
 # Costs 
 - **[Cloudflare R2 Free tier](https://developers.cloudflare.com/r2/pricing/#free-tier)** - Free if you stay within the limits of cloudflare R2 free tier.
